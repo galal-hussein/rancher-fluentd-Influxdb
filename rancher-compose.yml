@@ -1,0 +1,10 @@
+version: '2'
+services:
+  influxdb-config:
+    scale: 1
+    start_on_create: true
+  influxdb:
+    scale: 1
+    start_on_create: true
+  fluentd:
+    start_on_create: true
