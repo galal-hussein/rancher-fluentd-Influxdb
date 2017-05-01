@@ -25,3 +25,17 @@ services:
     labels:
       io.rancher.container.pull_image: always
       io.rancher.scheduler.global: 'true'
+  log-dashboard:
+    image: husseingalal/rancher-log-dashboard:0.1.0
+    environment:
+      INFLUX_HOST: influxdb
+      INFLUX_PORT: '8086'
+      INFLUX_DB: rancherInfra
+    stdin_open: true
+    tty: true
+    ports:
+    - 5000:5000/tcp
+    command:
+    - -debug
+    labels:
+      io.rancher.container.pull_image: always
