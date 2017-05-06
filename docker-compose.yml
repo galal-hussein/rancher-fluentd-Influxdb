@@ -25,6 +25,8 @@ services:
     labels:
       io.rancher.container.pull_image: always
       io.rancher.scheduler.global: 'true'
+    links:
+      - influxdb:influxdb
   logspout-fluentd:
     image: husseingalal/logspout-rancher:0.1.0
     labels:
@@ -32,6 +34,12 @@ services:
       io.rancher.scheduler.global: 'true'
     environment:
       - ROUTE_URIS="fluentd-rancher://fluentd:24224"
+    command:
+      - "fluentd-rancher://fluentd:24224"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    links:
+      - fluentd:fluentd
   log-dashboard:
     image: husseingalal/rancher-log-dashboard:0.1.0
     environment:

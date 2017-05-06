@@ -4,6 +4,7 @@ This stack consists of three components:
 
 - Fluentd.
 - InfluxDB.
+- Logspout-fluentd
 - [Rancher Log Dashboard](https://github.com/galal-hussein/rancher-log-dashboard).
 
 ## Usage
@@ -15,14 +16,8 @@ The stack is designed to store historic logs for infrastructure stacks in Ranche
 > cd rancher-fluentd-Influxdb
 > rancher up -d --stack infraLogs
 ```
+The stack will depend on the logspout fluentd rancher router that will route logs for Rancher infrastack containers to fluentd.
 
-Then you should upgrade the infra stacks to to use the `fluentd` log driver with the right tag:
-
-- ipsec: `tag=ipsec`
-- healthcheck: `tag=healthcheck`
-- network-services: `tag=network`
-- scheduler: `tag=scheduler`
-
-After upgrading the infra stacks navigate to the dashboard on port 5000:
+After deploying the stack navigate to the dashboard on port 5000:
 
 ![example](img/example.png)
