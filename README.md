@@ -4,7 +4,7 @@ This stack consists of four components:
 
 - Fluentd.
 - InfluxDB.
-- [Logspout-fluentd](https://github.com/galal-hussein/logspout-rancher-fluentd).
+- [Logspout-fluentd](https://github.com/galal-hussein/logspout-fluentd).
 - [Rancher Log Dashboard](https://github.com/galal-hussein/rancher-log-dashboard).
 
 ## Usage
