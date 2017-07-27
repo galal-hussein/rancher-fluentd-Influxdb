@@ -12,7 +12,7 @@ This stack consists of four components:
 The stack is designed to store historic logs for infrastructure stacks in Rancher environment, First deploy the stack from the UI or using rancher cli:
 
 ```
-> git clone https://github.com/galal-hussein/rancher-fluentd-Influxdb.git
+> git clone https://github.com/llparse/rancher-fluentd-Influxdb.git
 > cd rancher-fluentd-Influxdb
 > rancher up -d --stack infraLogs
 ```

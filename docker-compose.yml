@@ -29,7 +29,7 @@ services:
     depends_on:
       - influxdb
   logspout-fluentd:
-    image: husseingalal/logspout-rancher:0.1.0
+    image: llparse/logspout-rancher:0.1.0
     labels:
       io.rancher.container.pull_image: always
       io.rancher.scheduler.global: 'true'
@@ -43,7 +43,7 @@ services:
     depends_on:
       - fluentd
   log-dashboard:
-    image: husseingalal/rancher-log-dashboard:0.1.0
+    image: llparse/rancher-log-dashboard:0.1.0
     environment:
       INFLUX_HOST: influxdb
       INFLUX_PORT: '8086'
