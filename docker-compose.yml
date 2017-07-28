@@ -43,7 +43,7 @@ services:
     depends_on:
       - fluentd
   log-dashboard:
-    image: llparse/rancher-log-dashboard:0.1.0
+    image: husseingalal/rancher-log-dashboard:0.1.1
     environment:
       INFLUX_HOST: influxdb
       INFLUX_PORT: '8086'
