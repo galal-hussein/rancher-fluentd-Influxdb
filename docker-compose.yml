@@ -10,6 +10,8 @@ services:
     labels:
       io.rancher.container.pull_image: always
       io.rancher.sidekicks: influxdb-config
+    volumes:
+      - /influxdb:/var/lib/influxdb
     volumes_from:
       - influxdb-config
   influxdb-config:
@@ -20,12 +22,14 @@ services:
       io.rancher.container.pull_image: always
       io.rancher.container.start_once: true
   fluentd:
-    image: husseingalal/fluentd-influxdb:dev
+    image: husseingalal/fluentd-influxdb:0.1.1
     ports:
     - 127.0.0.1:24224:24224/tcp
     labels:
       io.rancher.container.pull_image: always
       io.rancher.scheduler.global: 'true'
+    volumes:
+      - /opt/fluentd/:/fluentd/log/
     depends_on:
       - influxdb
   logspout-fluentd:
