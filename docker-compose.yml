@@ -33,7 +33,7 @@ services:
     depends_on:
       - influxdb
   logspout-fluentd:
-    image: llparse/logspout-rancher:0.1.0
+    image: husseingalal/logspout-rancher:etcdonly
     labels:
       io.rancher.container.pull_image: always
       io.rancher.scheduler.global: 'true'
