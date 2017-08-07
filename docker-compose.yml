@@ -33,12 +33,15 @@ services:
     depends_on:
       - influxdb
   logspout-fluentd:
-    image: llparse/logspout-rancher:0.1.0
+    image: galal-hussein/logspout-rancher:0.1.2
     labels:
       io.rancher.container.pull_image: always
       io.rancher.scheduler.global: 'true'
     environment:
       - ROUTE_URIS="fluentd-rancher://127.0.0.1:24224"
+      - BACKLOG=true
+      - INACTIVITY_TIMEOUT=1m
+      - ALLOW_TTY=true
     network_mode: host
     command:
       - "fluentd-rancher://127.0.0.1:24224"
